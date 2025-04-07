@@ -1,0 +1,11 @@
+{
+  "name": "dlms_crypto_tool",
+  "version": "1.0.0",
+  "description": "Tool for crypt decrypt DLMS APDU",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ric-geek",
+  "license": "ISC"
+}
