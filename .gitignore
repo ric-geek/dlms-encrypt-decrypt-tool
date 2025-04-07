@@ -1,0 +1,9 @@
+# Ignore files with this exstension
+*.pyc
+*.bak
+
+idea/
+__pycache__/
+
+# JetBrains IDE
+.idea/
