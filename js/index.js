@@ -31,6 +31,7 @@ function encrypt(text) {
 
     };
 
+}
 
 /**
  * Decrypts and encrypted object using AES-128-GCM.
@@ -55,4 +56,4 @@ function decrypt(encrypted) {
 
     return decrypted;
     
-}
+};
