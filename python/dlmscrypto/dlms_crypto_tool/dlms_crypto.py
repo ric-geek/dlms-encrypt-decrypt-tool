@@ -47,7 +47,7 @@ def encrypt_apdu(system_title: str, frame_counter: str, encryption_key: str,
     return cipheredtext_with_tag.hex()
 
 def decrypt_apdu(system_title: str, frame_counter: str, encryption_key: str,
-                 additional_auth_data: str, ciphertext_with_tag: str) -> str
+                 additional_auth_data: str, ciphertext_with_tag: str) -> str:
 
     """
     Decrypt an APDU message
@@ -64,7 +64,7 @@ def decrypt_apdu(system_title: str, frame_counter: str, encryption_key: str,
     aesgcm = AESGCM(unhexlify(encryption_key))
     aad = unhexlify(SECURITY_HEADER['data'] + additional_auth_data)
     ciphertext_with_tag = unhexlify(ciphertext_with_tag)
-    plaintext = aesgcm.decrypt(iv, ciphertext_with_tag, aad)
+    plaintext = aesgcm.encrypt(iv, ciphertext_with_tag, aad)
 
     return plaintext.hex()
 

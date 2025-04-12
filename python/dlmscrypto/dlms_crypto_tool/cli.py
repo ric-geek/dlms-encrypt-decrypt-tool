@@ -102,7 +102,7 @@ def main():
         try:
 
             plaintext_hex = decrypt_apdu(system_title, frame_counter, encryption_key, aad, ciphertext)
-            result_output = f"Decrypted APDU: {plaintext_hex}"
+            result_output = f"Decrypted APDU: {plaintext_hex[:-32]}"
             logging.debug("Decryption process completed successfully")
 
         except Exception as e:
