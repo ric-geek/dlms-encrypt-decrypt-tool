@@ -4,7 +4,7 @@
 
 |  Language  | Directory |   Build tool   |
 |------------|-----------|----------------|
-| Python     | `python/` | setuptools     |
+|🐍 Python   | `python/` | setuptools     |
 | Node.js    | `js/`     | npm            |
 | C#         | `csharp/` | .NET CLI       |
 | Java       | `java/`   | Maven          |
