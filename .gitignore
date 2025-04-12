@@ -7,3 +7,5 @@ __pycache__/
 
 # JetBrains IDE
 .idea/
+
+node_modules/

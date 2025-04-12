@@ -1,11 +1,33 @@
 {
-  "name": "dlms_crypto_tool",
-  "version": "1.0.0",
-  "description": "Tool for crypt decrypt DLMS APDU",
-  "main": "index.js",
+  "name": "dlms-crypto-tool",
+  "version": "0.0.1",
+  "description": "A Node.js tool for encrypting, decrypting, authenticating DLMS APDU messages, and generate encryption key",
+  "main": "lib/dlmsCryptoTool.js",
+  "bin": {
+    "dlmscli": "./bin/dlmscli.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
+  },
+  "keywords": [
+    "DLMS",
+    "AES-GCM",
+    "encryption",
+    "decryption",
+    "authentication",
+    "crypto"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ric-geek/dlms-encrypt-decrypt-tool.git"
   },
   "author": "ric-geek",
-  "license": "ISC"
+  "license": "LGPL-3.0-only",
+  "private": true,
+  "dependencies": {
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^11.1.0"
+  }
 }
