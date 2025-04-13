@@ -2,14 +2,14 @@
 
 ## Supported language
 
-|  Language  | Directory |   Build tool   |
-|------------|-----------|----------------|
-|🐍 Python   | `python/` | setuptools     |
-| Node.js    | `js/`     | npm            |
-| C#         | `csharp/` | .NET CLI       |
-| Java       | `java/`   | Maven          |
-| C++        | `cpp/`    | CMake          |
-| Rust       | `rust/`   | Cargo          |
+|  Language  | Directory |   Build tool   |   Status    |
+|------------|-----------|----------------|-------------|
+|🐍 Python   | `python/` | setuptools     |   Stable    |
+| Node.js    | `js/`     | npm            |   Stable    |
+| C#         | `csharp/` | .NET CLI       | Coming soon |
+| Java       | `java/`   | Maven          | Coming soon |
+| C++        | `cpp/`    | CMake          | Coming soon |
+| Rust       | `rust/`   | Cargo          | Coming soon |
 
 ### 📦 How to use
 
