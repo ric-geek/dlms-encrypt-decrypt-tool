@@ -23,7 +23,7 @@
   },
   "author": "ric-geek",
   "license": "LGPL-3.0-only",
-  "private": true,
+  "private": false,
   "dependencies": {
     "commander": "^13.1.0"
   },
