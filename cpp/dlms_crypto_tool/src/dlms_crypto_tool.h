@@ -29,4 +29,11 @@ std::string decrypt_apdu(const std::string& system_title, const std::string& fra
     const std::string& encryption_key, const std::string& authentication_key,
     const std::string& stoc);
 
+// Generate an authentication tag by encrypting an empty plaintext with a custom AAD
+std::string auth_apdu(const std::string& system_title,
+    const std::string& frame_counter,
+    const std::string& encryption_key,
+    const std::string& authentication_key,
+    const std::string& stoc);
+
 #endif // DLMS_CRYPTO_TOOL_H
