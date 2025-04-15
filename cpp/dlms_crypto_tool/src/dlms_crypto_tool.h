@@ -5,8 +5,8 @@
 #include <vector>
 
 // Security header constants
-const std::string SECURITY_HEADER_AUTH = "10";
-const std::string SECURITY_HEADER_DATA = "30";
+extern const std::string SECURITY_HEADER_AUTH;
+extern const std::string SECURITY_HEADER_DATA;
 
 // Function to generate a random 16 byte encryption key
 std::string generate_key();
