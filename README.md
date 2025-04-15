@@ -8,7 +8,8 @@
 | Node.js    | `js/`     | npm            |   Stable    | ![npm](https://img.shields.io/npm/dt/dlms-crypto-tool) |
 | C#         | `csharp/` | .NET CLI       | Coming soon |                                                        |
 | Java       | `java/`   | Maven          | Coming soon |                                                        |
-| C++        | `cpp/`    | Make           |   Stable    |                                                        |
+| C++        | `cpp/`    | Make           |   Stable    | [![GitHub release downloads](https://img.shields.io/github/downloads/ric-geek/dlms-encrypt-decrypt-tool/total)](https://github.com/ric-geek/dlms-encrypt-decrypt-tool/releases)
+ |
 | Rust       | `rust/`   | Cargo          | Coming soon |                                                        |
 
 ### 📦 How to use
