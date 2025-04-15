@@ -8,7 +8,7 @@
 | Node.js    | `js/`     | npm            |   Stable    | ![npm](https://img.shields.io/npm/dt/dlms-crypto-tool) |
 | C#         | `csharp/` | .NET CLI       | Coming soon |                                                        |
 | Java       | `java/`   | Maven          | Coming soon |                                                        |
-| C++        | `cpp/`    | CMake          | Coming soon |                                                        |
+| C++        | `cpp/`    | Make           |   Stable    |                                                        |
 | Rust       | `rust/`   | Cargo          | Coming soon |                                                        |
 
 ### 📦 How to use
