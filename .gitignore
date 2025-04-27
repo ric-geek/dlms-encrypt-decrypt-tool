@@ -13,3 +13,9 @@ node_modules/
 # For C#
 obj/
 bin/
+
+# For Java
+.gradle/
+gradlew
+gradlew.bat
+gradle/
