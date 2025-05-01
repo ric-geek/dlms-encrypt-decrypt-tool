@@ -19,3 +19,4 @@ bin/
 gradlew
 gradlew.bat
 gradle/
+build/
