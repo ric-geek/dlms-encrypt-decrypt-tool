@@ -1,17 +1,29 @@
-from xdlms_tag import *
+from dlms_crypto_tool.xdlms_tag import COMMAND, GET
+from lxml import etree
 
-def translate_apdu(apdu: str) -> list[str]:
 
-    apdu_field = [] # It will contain the translated APDU
+# Directly taken from the documentation of lxml (https://lxml.de/tutorial.html)
+def prettyprint(element, **kwargs):
 
-    if TAGS.get(apdu[0:2],"Command not supported!") == "GET_REQUEST_TAG":
+    xml = etree.tostring(element, pretty_print=True, **kwargs)
 
-        apdu_field.append(TAGS.get(apdu[0:2], "Command not supported!"))
-        apdu_field.append(TAGS.get(apdu[2:4], "Command not supported!"))
-        apdu_field.append(TAGS.get(apdu[4:6], "Command not supported!"))
-        apdu_field.append(TAGS.get(apdu[6:10], "Command not supported!"))
-        apdu_field.append(TAGS.get(apdu[10:22], "Command not supported!"))
-        apdu_field.append(TAGS.get(apdu[22:24], "Command not supported!"))
+    print(xml.decode(), end=' ')
+
+def translate_apdu(apdu: str):
+
+    root = etree.Element("root") # Root node of the XML
+
+    if COMMAND.get(apdu[0:2],"Command not supported!") == "GetRequest":
+
+        get_request = etree.SubElement(root, COMMAND.get(apdu[0:2],"Command not supported!"))
+        get_request_normal = etree.SubElement(get_request, GET.get(apdu[2:4],"Command not supported!"))
+        invoke_id_and_priority = etree.SubElement(get_request_normal, "InvokeIdAndPriority", {"Value": apdu[4:6]})
+        attribute_descriptor = etree.SubElement(invoke_id_and_priority, "AttributeDescriptor")
+        class_id = etree.SubElement(attribute_descriptor, "ClassId", {"Value": apdu[6:10]})
+        istance_id = etree.SubElement(class_id, "IstanceId", {"Value": apdu[10:22]})
+        etree.SubElement(istance_id, "AttributeId", {"Value": apdu[22:24]})
+
+        print(etree.tostring(root, pretty_print=True).decode())
 
     elif TAGS.get(apdu[0:2],"Command not supported!") == "SET_REQUEST_TAG":
 
@@ -20,5 +32,3 @@ def translate_apdu(apdu: str) -> list[str]:
     else:
 
         print("")
-
-    return apdu_field

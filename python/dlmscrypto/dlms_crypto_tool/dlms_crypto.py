@@ -4,6 +4,8 @@ from pydoc import plaintext
 
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
+# from dlms_crypto_tool.translate_apdu import translate_apdu
+
 # Define security headers for different operations
 SECURITY_HEADER = {
 
@@ -65,6 +67,8 @@ def decrypt_apdu(system_title: str, frame_counter: str, encryption_key: str,
     aad = unhexlify(SECURITY_HEADER['data'] + additional_auth_data)
     ciphertext_with_tag = unhexlify(ciphertext_with_tag)
     plaintext = aesgcm.encrypt(iv, ciphertext_with_tag, aad)
+
+    # translate_apdu(plaintext.hex())
 
     return plaintext.hex()
 
