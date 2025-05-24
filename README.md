@@ -9,7 +9,6 @@
 | C#         | `csharp/` | .NET CLI       |   Stable    |                                                        |
 |☕ Java     | `java/`   | Gradle         |   Stable    |                                                        |
 | C++        | `cpp/`    | Make           |   Stable    | [![GitHub release downloads](https://img.shields.io/github/downloads/ric-geek/dlms-encrypt-decrypt-tool/total)](https://github.com/ric-geek/dlms-encrypt-decrypt-tool/releases) |
-| Rust       | `rust/`   | Cargo          | Coming soon |                                                        |
 
 ### 📦 How to use
 
