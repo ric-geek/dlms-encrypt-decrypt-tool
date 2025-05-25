@@ -2,13 +2,6 @@ from dlms_crypto_tool.xdlms_tag import COMMAND, GET
 from lxml import etree
 
 
-# Directly taken from the documentation of lxml (https://lxml.de/tutorial.html)
-def prettyprint(element, **kwargs):
-
-    xml = etree.tostring(element, pretty_print=True, **kwargs)
-
-    print(xml.decode(), end=' ')
-
 def translate_apdu(apdu: str):
 
     root = etree.Element("root") # Root node of the XML
@@ -25,7 +18,7 @@ def translate_apdu(apdu: str):
 
         print(etree.tostring(root, pretty_print=True).decode())
 
-    elif TAGS.get(apdu[0:2],"Command not supported!") == "SET_REQUEST_TAG":
+    elif COMMAND.get(apdu[0:2],"Command not supported!") == "SET_REQUEST_TAG":
 
         print("")
 
