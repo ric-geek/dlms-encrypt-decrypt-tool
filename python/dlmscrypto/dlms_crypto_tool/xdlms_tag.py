@@ -51,6 +51,14 @@ SET = {
     "05": "SetRequestWithListAndFirstDatablock"
 }
 
+SET_RESPONSE = {
+    "01": "SetResponseNormal",
+}
+
+SET_RESPONSE_NORMAL = {
+    "01": "SetResponseNormal", # TODO HOW TO HANDLE?
+}
+
 ACTION = {
     "01": "ActionRequestNormal",
     "02": "ActionRequestNextPblock",
