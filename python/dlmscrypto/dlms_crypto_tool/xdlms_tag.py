@@ -25,6 +25,33 @@ from collections import namedtuple
 COSEM_ATTRIBUTE_DESCRIPTOR = namedtuple('CosemAttributeDescriptor',
                                         ['ClassId','InstanceId','AttributeId'])
 
+DATA = {
+    "0": "null-data",
+    "1": "Array",
+    "2": "Structure",
+    "3": "Boolean",
+    "4": "BitString",
+    "5": "DoubleLong",
+    "6": "DoubleLongUnsigned",
+    "9": "OctetString",
+    "10": "VisibleString",
+    "12": "UTF8String",
+    "13": "BCD",
+    "15": "Integer",
+    "16": "Long",
+    "17": "Unsigned",
+    "18": "LongUnsigned",
+    "19": "CompactArray",
+    "20": "Long64",
+    "21": "Long64Unsigned",
+    "22": "Float32",
+    "23": "Float64",
+    "24": "DataTime",
+    "25": "Date",
+    "26": "Time",
+    "27": "DontCare",
+}
+
 COMMAND = {
     "c0": "GetRequest",
     "c1": "SetRequest",
@@ -41,6 +68,17 @@ GET_REQUEST_NORMAL = {
     "01": "GetRequestNormal",
     "02": "GetRequestNext",
     "03": "GetRequestWithList"
+}
+
+GET_RESPONSE = {
+    "01": "GetResponseNormal",
+    "02": "GetResponseWithDatablock",
+    "03": "GetResponseWithList"
+}
+
+GET_RESPONSE_NORMAL = {
+    "01": "GetRequestNormal",
+    "02": "GetRequestNext",
 }
 
 SET = {
