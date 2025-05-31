@@ -1,4 +1,4 @@
-from dlms_crypto_tool.xdlms_tag import COMMAND, GET
+from dlms_crypto_tool.xdlms_tag import *
 from lxml import etree
 
 
@@ -18,9 +18,22 @@ def translate_apdu(apdu: str):
 
         print(etree.tostring(root, pretty_print=True).decode())
 
-    elif COMMAND.get(apdu[0:2],"Command not supported!") == "SET_REQUEST_TAG":
+    elif COMMAND.get(apdu[0:2],"Command not supported!") == "SetRequest":
 
         print("")
+
+    elif COMMAND.get(apdu[0:2],"Command not supported!") == "GetResponse":
+
+        get_response = etree.SubElement(root, COMMAND.get(apdu[0:2], "Command not supported!"))
+        get_response_normal = etree.SubElement(get_response, GET_RESPONSE.get(apdu[2:4], "Command not supported!"))
+
+        # Unpack the list
+        id_and_priority, data_type = GET_RESPONSE_NORMAL
+        invoke_id_and_priority = etree.SubElement(get_response_normal, id_and_priority, {"Value": apdu[4:6]})
+        result = etree.SubElement(invoke_id_and_priority, "Result")
+        etree.SubElement(result, data_type[apdu[6:10]], {"Value": apdu[6:10]}) #TODO FIX APDU INDEX
+
+        print(etree.tostring(root, pretty_print=True).decode())
 
     else:
 

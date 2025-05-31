@@ -56,6 +56,7 @@ COMMAND = {
     "c0": "GetRequest",
     "c1": "SetRequest",
     "c3": "ActionRequest",
+    "c4": "GetResponse"
 }
 
 GET = {
@@ -76,10 +77,7 @@ GET_RESPONSE = {
     "03": "GetResponseWithList"
 }
 
-GET_RESPONSE_NORMAL = {
-    "01": "GetRequestNormal",
-    "02": "GetRequestNext",
-}
+GET_RESPONSE_NORMAL = ["InvokeIdAndPriority", DATA]
 
 SET = {
     "01": "SetRequestNormal",
