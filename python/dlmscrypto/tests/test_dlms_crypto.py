@@ -9,6 +9,7 @@ sys.path.insert(0, project_root)
 
 # Import package
 from dlms_crypto_tool.dlms_crypto import encrypt_apdu, decrypt_apdu, auth_apdu, create_iv
+from dlms_crypto_tool.translate_apdu import translate_apdu
 import unittest
 
 class TestDLMSCrypto(unittest.TestCase):
@@ -20,6 +21,7 @@ class TestDLMSCrypto(unittest.TestCase):
         self.encryption_key = "454E4352595054494F4E4B45594B4559" # 16 bytes
         self.aad = "41555448454E5449434154494F4E4B45" # Additional auth data (4 bytes)
         self.plaintext = "c001810001000060010aff0200" # Sample APDU
+        self.get_response = "C401C10010003C" # Example of Get Response APDU
 
     def test_encryption_decrypt(self):
 
@@ -58,6 +60,10 @@ class TestDLMSCrypto(unittest.TestCase):
         iv = create_iv(self.system_title, self.frame_counter)
 
         self.assertEqual(len(iv), 12, "IV length is not 12 bytes")
+
+    def test_translate_apdu(self):
+
+        translate_apdu(self.get_response)
 
 if __name__ == '__main':
 
