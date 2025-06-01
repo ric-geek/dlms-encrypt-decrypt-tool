@@ -1,26 +1,5 @@
 from collections import namedtuple
 
-# TAGS = {
-#     "01": "ACCESS_SELECTION",
-#     "01": "ACCESS_SELECTOR",
-#     "c4": "GET_RESPONSE_TAG",
-#     "01": "SET_REQUEST_NORMAL_TAG",
-#     "02": "SET_REQUEST_WITH_FIRST_DATABLOCK_TAG",
-#     "03": "SET_REQUEST_WITH_DATABLOCK_TAG",
-#     "04": "SET_REQUEST_WITH_LIST_TAG",
-#     "01": "ACTION_REQUEST_NORMAL_TAG",
-#     "02": "ACTION_REQUEST_NEXT_TAG",
-#     "03": "ACTION_REQUEST_WITH_LIST_TAG",
-#     "c7": "ACTION_RESPONSE",
-#     "01": "ACTION_RESPONSE_NORMAL",
-#     "00": "SUCCESS",
-#     "fa": "OTHER_REASON",
-#     "0b": "OBJECT_UNAVAILABLE",
-#     "02": "TEMPORARY_FAILURE",
-#     "03": "READ_WRITE_DENIED",
-#     "0c": "TYPE_UNMATCHED",
-#     "0d": "SCOPE_OF_ACCESS_VIOLATED"
-# }
 
 COSEM_ATTRIBUTE_DESCRIPTOR = namedtuple('CosemAttributeDescriptor',
                                         ['ClassId','InstanceId','AttributeId'])
@@ -52,11 +31,30 @@ DATA = {
     "27": "DontCare",
 }
 
+DATA_ACCESS_RESULT = {
+    "0": "Success",
+    "1": "Hardware Fault",
+    "2": "Temporary Failure",
+    "3": "Read Write Denied",
+    "4": "Object Undefined",
+    "9": "Object Class Inconsistent",
+    "11": "Object Unavailable",
+    "12": "Type Unmatched",
+    "13": "Scope Of Access Violated",
+    "15": "Data Block Unavailable",
+    "16": "Long Get Aborted",
+    "17": "Long Set Aborted",
+    "18": "No Long Set In Progress",
+    "19": "Data Block Number Invalid",
+    "255": "Other Reason"
+}
+
 COMMAND = {
     "c0": "GetRequest",
     "c1": "SetRequest",
     "c3": "ActionRequest",
-    "c4": "GetResponse"
+    "c4": "GetResponse",
+    "c5": "SetResponse"
 }
 
 GET = {
@@ -87,13 +85,17 @@ SET = {
     "05": "SetRequestWithListAndFirstDatablock"
 }
 
+SET_REQUEST_NORMAL = ["InvokeIdAndPriority", COSEM_ATTRIBUTE_DESCRIPTOR, DATA]
+
 SET_RESPONSE = {
     "01": "SetResponseNormal",
+    "02": "SetResponseDatablock",
+    "03": "SetResponseLastDatablock",
+    "04": "SetResponseLastDatablockWithList",
+    "05": "SetResponseWithList"
 }
 
-SET_RESPONSE_NORMAL = {
-    "01": "SetResponseNormal", # TODO HOW TO HANDLE?
-}
+SET_RESPONSE_NORMAL = ["InvokeIdAndPriority", DATA_ACCESS_RESULT]
 
 ACTION = {
     "01": "ActionRequestNormal",

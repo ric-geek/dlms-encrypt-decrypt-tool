@@ -22,6 +22,7 @@ class TestDLMSCrypto(unittest.TestCase):
         self.aad = "41555448454E5449434154494F4E4B45" # Additional auth data (4 bytes)
         self.plaintext = "c001810001000060010aff0200" # Sample APDU
         self.get_response = "C401C10010003C" # Example of Get Response APDU
+        self.set_response = "C501C100" # Example of Set Response APDU
 
     def test_encryption_decrypt(self):
 
@@ -63,7 +64,7 @@ class TestDLMSCrypto(unittest.TestCase):
 
     def test_translate_apdu(self):
 
-        translate_apdu(self.get_response)
+        translate_apdu(self.set_response)
 
 if __name__ == '__main':
 
