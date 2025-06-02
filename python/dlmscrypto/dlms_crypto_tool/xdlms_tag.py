@@ -105,3 +105,5 @@ ACTION = {
     "05": "ActionRequestWithListAndFirstDatablock",
     "06": "ActionRequestWithPblock"
 }
+
+ACTION_REQUEST_NORMAL = ["InvokeIdAndPriority", COSEM_ATTRIBUTE_DESCRIPTOR, DATA]

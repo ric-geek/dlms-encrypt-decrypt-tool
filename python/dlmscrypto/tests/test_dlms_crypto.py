@@ -23,6 +23,7 @@ class TestDLMSCrypto(unittest.TestCase):
         self.plaintext = "c001810001000060010aff0200" # Sample APDU
         self.get_response = "C401C10010003C" # Example of Get Response APDU
         self.set_response = "C501C100" # Example of Set Response APDU
+        self.action_request = "C301C111221122334455660300" # Example of Action Request APDU
 
     def test_encryption_decrypt(self):
 
@@ -64,7 +65,7 @@ class TestDLMSCrypto(unittest.TestCase):
 
     def test_translate_apdu(self):
 
-        translate_apdu(self.set_response)
+        translate_apdu(self.action_request)
 
 if __name__ == '__main':
 
